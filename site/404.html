@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>酒店自媒体创作工作台</title>
+    <script>
+      // GitHub Pages 是纯静态托管：任意未命中的路径都会落到这个 404 页。
+      // 应用使用 Hash 路由，路径里只会有「仓库名」这一层，因此跳到站点根目录即可。
+      (function () {
+        var parts = location.pathname.split('/').filter(Boolean);
+        var base = parts.length > 1 ? '/' + parts[0] + '/' : '/';
+        location.replace(base + 'index.html' + location.hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
