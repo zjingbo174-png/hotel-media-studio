@@ -1,0 +1,15 @@
+{
+  "name": "hms-api",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2025-01-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hms",
+      "database_id": "REPLACE_WITH_D1_ID"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "*"
+  }
+}

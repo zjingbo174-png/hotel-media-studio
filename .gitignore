@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build
+dist/
+dist-ssr/
+*.local
+
+# editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.*
+!.env.example
+
+# test / coverage
+coverage/
+
+# 本地截图产物（docs/screenshots 里的才是要提交的）
+shots/
+
+# misc
+*.tsbuildinfo
+
+# 本地后端数据（JSON 存储，勿提交）
+server/.data/
