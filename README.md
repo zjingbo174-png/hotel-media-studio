@@ -1,6 +1,6 @@
 # 酒店自媒体创作工作台
 
-手机端优先的**自媒体创作工作台**：每日计划打卡 → 当日酒店类选题灵感 → 爆款热点与二创方案，三段闭环。
+**v1.0.0** · 手机端优先的**自媒体创作工作台**：每日计划打卡 → 当日酒店类选题灵感 → 爆款热点与二创方案，三段闭环。
 
 纯前端 PWA，可「添加到主屏幕」当 App 用；默认数据只存本机 IndexedDB。可选的**团队协作模式**支持 10 人左右共享内容库、各自打卡——凭「工作区码 + 昵称」加入，**没有密码、没有注册表单**。
 
@@ -90,12 +90,18 @@ node scripts/shots.mjs      # 生成手机与桌面截图
 
 ## 部署到 GitHub Pages
 
-1. 新建仓库并推送本目录（`main` 分支）。
-2. 仓库 Settings → Pages → Source 选 **GitHub Actions**。
-3. `.github/workflows/deploy.yml` 会在 push 后自动构建并发布。
-4. 构建使用相对路径 `base: './'`，项目页 `/repo-name/` 与自定义域名都能直接跑；`404.html` 会把任意深链带回入口。
+```bash
+# 建仓库并推送（仓库名可改）
+gh repo create hotel-media-studio --public --source=. --remote=origin --push
+# 然后在仓库 Settings → Pages → Source 选 “GitHub Actions”
+```
 
+推送后 `.github/workflows/deploy.yml` 会自动测试、构建并发布到 `https://<账号>.github.io/hotel-media-studio/`。
+
+> 部署使用相对路径 `base: './'`，项目页 `/repo-name/` 与自定义域名都能直接跑；`404.html` 会把任意深链带回入口。
 > 国内访问 GitHub Pages 可能较慢，纯静态产物也可直接部署到 Vercel / Netlify / 任意静态托管。
+
+发布前检查与手机测试步骤见 [07-发布与真机测试](docs/07-发布与真机测试.md)（含局域网快速测试方法）。
 
 ## 技术栈
 
@@ -137,6 +143,7 @@ scripts/        api-test / e2e-check / e2e-online / shots
 - [04-修复记录](docs/04-修复记录.md)：审计问题修复状态、新增回归测试、剩余风险
 - [05-后端API契约](docs/05-后端API契约.md)：协作接口、表结构、鉴权、限流
 - [06-后端部署](docs/06-后端部署.md)：10 分钟部署 Cloudflare Worker + D1（面向非程序员）
+- [07-发布与真机测试](docs/07-发布与真机测试.md)：v1.0.0 发布检查结果、发布步骤、手机测试清单
 
 ## 路线图
 

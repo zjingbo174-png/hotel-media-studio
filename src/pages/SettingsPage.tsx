@@ -490,7 +490,7 @@ export function SettingsPage() {
       </Section>
 
       <Section title="关于">
-        <Row title="版本" desc="v0.2.0 · 支持在线协作（工作区码 + 昵称，无密码）">
+        <Row title="版本" desc="v1.0.0 · 首个正式版：每日计划 / 选题灵感 / 热点二创 + 10 人协作">
           <span className="text-[11px] text-ink-mute">MIT</span>
         </Row>
         <div className="px-4 py-3 text-[11.5px] leading-relaxed text-ink-mute">

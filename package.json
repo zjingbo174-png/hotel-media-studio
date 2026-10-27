@@ -1,7 +1,7 @@
 {
   "name": "hotel-media-studio",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "酒店自媒体创作工作台：每日计划打卡 / 选题灵感 / 爆款热点二创，手机端优先的 PWA",
   "scripts": {
@@ -14,6 +14,7 @@
     "api:dev": "node server/dev.mjs",
     "api:test": "node scripts/api-test.mjs",
     "check:online": "node scripts/e2e-online.mjs",
+    "check:release": "node scripts/release-check.mjs",
     "shots": "node scripts/shots.mjs"
   },
   "dependencies": {

@@ -34,6 +34,9 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,png,svg,woff2}'],
         navigateFallback: 'index.html',
+        // 只对站点根（/ 或 /repo/）做导航回退；深链交给服务端 404 页跳回根，
+        // 否则深链被 SW 回退成 index.html 后，相对资源路径会解析错。
+        navigateFallbackAllowlist: [/^\/[^/]*\/?$/],
       },
     }),
   ],
