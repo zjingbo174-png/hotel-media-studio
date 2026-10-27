@@ -89,9 +89,15 @@ check('Hash 路由可用', (await page.locator('main').innerText()).includes('�
 check('无运行时错误', errors.length === 0, errors.slice(0, 2).join(' | '));
 
 // 深链兜底会故意产生一次 404（GitHub Pages 的 404 页），随后由页面跳回应用
-await page.goto(BASE + 'some/deep/link', { waitUntil: 'networkidle' }).catch(() => {});
-await page.waitForTimeout(1800);
-check('深链 404 兜底回到应用', (await page.locator('body').innerText()).includes('每日计划'));
+// 临时 CDN/托管（如 brewpage）没有 SPA fallback，Hash 路由不依赖深链，跳过
+const skipDeepLink = /brewpage\.app|jsdelivr|statically|githack/i.test(BASE);
+if (!skipDeepLink) {
+  await page.goto(BASE + 'some/deep/link', { waitUntil: 'networkidle' }).catch(() => {});
+  await page.waitForTimeout(1800);
+  check('深链 404 兜底回到应用', (await page.locator('body').innerText()).includes('每日计划'));
+} else {
+  console.log('SKIP 深链 404 兜底（该托管无 SPA fallback，Hash 路由不受影响）');
+}
 
 await page.goto(BASE, { waitUntil: 'networkidle' });
 await page.waitForTimeout(1200);

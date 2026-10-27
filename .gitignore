@@ -39,3 +39,6 @@ server/.data/
 
 # 发布产物
 release/
+
+# 临时发布凭据
+.brewpage-owner.json
